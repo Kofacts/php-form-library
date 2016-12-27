@@ -24,7 +24,7 @@ class Form
 	* @param method and url
 	* The Method= GET || POST and url= url of Request Method.
 	*/
-	public static function Open($method,$url)
+	public static function open($method,$url)
 	{
 		self::$method=$method;
 		self::$url=$url;
@@ -45,13 +45,13 @@ class Form
 
 	}
 
-	public static function Close()
+	public static function close()
 	{
 		return "\n</form>";
 
 	}
 
-	public static function Input($option,$fields)
+	public static function input($option,$fields)
 	{
 		self::$option=$option;
 		self::$fields[]=$fields;
@@ -74,6 +74,23 @@ class Form
 			}
 		}
 		
+	}
+
+	public static function textarea($fields=NULL)
+	{
+		
+		self::$fields[]=$fields;
+		//return "<textarea> ----- </textarea>";
+		if(!empty(self::$fields))
+		{
+			$name_field=$fields['name'];
+			return "<textarea name='$name_field'></textarea>";
+		}
+		else
+		{
+			return false;
+		}
+
 	}
 
 	//public static function 
