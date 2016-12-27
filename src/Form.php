@@ -73,6 +73,18 @@ class Form
 
 			}
 		}
+		elseif($option=="PASSWORD" || $option=="password")
+		{
+			if(!empty($fields['style']))
+			{
+				$name_field=$fields['name'];
+				$style_field=$fields['style'];
+				$form_input="<input type='password' name='$name_field' style='$style_field'>\n</input>";
+
+				return $form_input;
+			}
+		}
+
 		
 	}
 
